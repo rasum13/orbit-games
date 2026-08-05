@@ -10,9 +10,9 @@ async def shop(request: Request):
         name="store.html"
     )
 
-@router.get(path="/game/:id")
+@router.get(path="/game")
 async def game_page(request: Request):
     return templates.TemplateResponse(
         request=request,
-        name="details.html"
+        name="game.html"
     )

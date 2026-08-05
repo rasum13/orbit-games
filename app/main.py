@@ -1,13 +1,16 @@
+from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 
 from app.api.main import api_router
 from app.core.config import settings
 
+BASE_DIR = Path(__file__).resolve().parent
+
 app = FastAPI()
 
-templates = Jinja2Templates(directory="templates")
+app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,

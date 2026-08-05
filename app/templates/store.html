@@ -1,12 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title></title>
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <h1>Hello, World!</h1>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/store.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <ul class="navbar">
+        <li><a href="{{ url_for('store_page') }}">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#footer">Contact Us</a></li>
+    </ul>
+    <div class="container">
+        <div class="games">
+            <a href="{{ url_for('game_page')}}" class="gamecard">
+                <img class="game-img" >
+                <h2 class="game-title">Hollow Knight</h2>
+                <div class="price">$14.99</div>
+            </a>
+            <a href="#" class="gamecard">
+                <img class="game-img">
+                <h2 class="game-title">Hollow Knight</h2>
+                <div class="price">$14.99</div>
+            </a>
+            <a href="#" class="gamecard">
+                <img class="game-img">
+                <h2 class="game-title">Hollow Knight</h2>
+                <div class="price">$14.99</div>
+            </a>
+            <a href="game.html" class="gamecard">
+                <img class="game-img" >
+                <h2 class="game-title">Hollow Knight</h2>
+                <div class="price">$14.99</div>
+            </a>
+            <a href="#" class="gamecard">
+                <img class="game-img">
+                <h2 class="game-title">Hollow Knight</h2>
+                <div class="price">$14.99</div>
+            </a>
+            <a href="#" class="gamecard">
+                <img class="game-img">
+                <h2 class="game-title">Hollow Knight</h2>
+                <div class="price">$14.99</div>
+            </a>
+        </div>
+        <form class="filter-box">
+            <h3>Genre</h3>
+            <label for="action" class="checkbox-container">
+                <input id="action" class= "filter-checkbox" type="checkbox" name="action">
+                <span class="filter-checkmark"></span>
+                <div class="filter-text" for="Action">Action</div> 
+            </label>
+             <label for="action" class="checkbox-container">
+                <input id="action" class= "filter-checkbox" type="checkbox" name="action">
+                <span class="filter-checkmark"></span>
+                <div class="filter-text" for="Action">Action</div> 
+            </label>
+            <label for="action" class="checkbox-container">
+                <input id="action" class= "filter-checkbox" type="checkbox" name="action">
+                <span class="filter-checkmark"></span>
+                <div class="filter-text" for="Action">Action</div> 
+            </label>
+            <label for="action" class="checkbox-container">
+                <input id="action" class= "filter-checkbox" type="checkbox" name="action">
+                <span class="filter-checkmark"></span>
+                <div class="filter-text" for="Action">Action</div> 
+            </label>
+                <input class="filter-apply" type="submit" value="Apply">
+
+        </form>
+    </div>
+    <footer id="footer">
+    <p>Contact us<br/>
+    gamingstore@gmail.com
+    </p>
+
+    &copy Gaming Store
+</footer>
+</body>
 </html>

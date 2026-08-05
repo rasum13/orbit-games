@@ -1,0 +1,109 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2em;
+    align-items: flex-start;
+}
+.games{
+    display: flex;
+    flex-wrap: wrap;
+}
+.game-title{
+    margin: 0;
+    color: #f9f9f9;
+    font-size: 1.25em;
+    margin: 0.5em 0;
+    font-weight: 500;
+    flex: 1;
+    min-width: 0;
+}
+.gamecard{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin-right: 40px;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+.game-img{
+    border-radius: 12px;
+    height: 400px;
+    flex-shrink: 0;
+}
+.filter-box{
+    padding: 2em;
+    border-radius: 16px;
+    background-color: #333333;
+    border: 1px solid #666666;
+    width: 400px;
+    position: relative;
+}
+.filter-box h3{
+    color: #f9f9f9;  
+    margin: 0px;
+    margin-bottom: 1em; 
+}
+.filter-text{
+    color: #999999;
+    margin-left: 0.75em;
+}
+.checkbox-container input{
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+}
+.filter-checkmark{
+    height: 16px;
+    width: 16px;
+    content: "";
+    background-color: #555555;
+    border: 1px solid #777777;
+    border-radius: 4px;
+    position: relative;
+    display: inline-block;
+}
+.checkbox-container:hover input ~ .filter-checkmark{
+    background-color: #777777;
+}
+.filter-checkmark::after{
+    content: "";
+    display: none;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 10px;
+}
+.checkbox-container input:checked ~ .filter-checkmark::after{
+    display: block;
+}
+.checkbox-container .filter-checkmark::after{
+    width: 8px;
+    height: 8px;
+    background: #aaaaaa;
+}
+.checkbox-container{
+    margin-top: 0.5em;
+    font-size: 0.75em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+.filter-apply{
+    color: cyan;
+    background-color: #333333;
+    text-decoration: none;
+    position: absolute;
+    top: 2.5em;
+    right: 2em;
+    border: 0;
+}
+.filter-apply:hover{
+    color: #999999;
+    cursor: pointer;
+}

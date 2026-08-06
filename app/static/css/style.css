@@ -1,3 +1,18 @@
+@font-face {
+    font-family: Ubuntu;
+    src: url("../fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: Ubuntu;
+    src: url("../fonts/Ubuntu/Ubuntu-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+@font-face {
+    font-family: Ubuntu;
+    src: url("../fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+    font-weight: 800;
+}
 body{
     margin: 0;
     background-color: #242424;
@@ -6,15 +21,45 @@ body{
     display: flex;
     flex-direction: column;
 }
+.topbar {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 2em;
+}
+.searchbar {
+    border-radius: 100px;
+    overflow: hidden;
+    height: 2em;
+    display: flex;
+    align-items: stretch;
+    margin-right: 2em;
+}
+.searchbar input {
+    border: 0;
+    padding: 0.5em 1em;
+}
+.search-textbox {
+    background-color: #333333;
+    color: #f9f9f9;
+    padding: 0 1.5em !important;
+    width: 300px;
+}
+.search-button {
+    font-family: 'FontAwesome';
+    background-color: #4BFEC9;
+    cursor: pointer;
+}
 .navbar{
     list-style-type: none;
-    background-color: black;
     margin: 0px;
-    padding: 8px 16px;
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 80px;
+    padding: 0;
 }
 .navbar li a{
     color: white;
@@ -25,19 +70,19 @@ body{
 .navbar li a:hover{
     background-color: #242424;
 }
-.price{
-    color: #999999;
-    font-size: 1.25em;
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+.cart {
+    color: #f9f9f9;
+    font-size: 1.5em;
 }
 footer{
     margin: 0;
     bottom: 0;
-    list-style: none;
     background-color: black;
     overflow: hidden;
-    float: left;
-    display: block;
     color: white;
     padding: 14px 16px;
-    width: 100%;
 }

@@ -23,14 +23,14 @@
     color: white;
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 350px;
     margin-right: 40px;
+    margin-bottom: 40px;
     word-wrap: break-word;
     hyphens: auto;
 }
 .game-img{
     border-radius: 12px;
-    height: 400px;
     flex-shrink: 0;
 }
 .filter-box{
@@ -95,7 +95,7 @@
     position: relative;
 }
 .filter-apply{
-    color: cyan;
+    color: #4BFEC9;
     background-color: #333333;
     text-decoration: none;
     position: absolute;
@@ -106,4 +106,8 @@
 .filter-apply:hover{
     color: #999999;
     cursor: pointer;
+}
+.price{
+    color: #999999;
+    font-size: 1.25em;
 }

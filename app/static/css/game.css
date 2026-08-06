@@ -1,9 +1,6 @@
 .game-banner{
     width: 100dvw;
 }
-.add-to-cart{
-    background-color: cyan;
-}
 .game-title{
     margin: 0;
     margin-bottom: 0.5em;
@@ -31,6 +28,33 @@
 }
 .container{
     padding: 4em;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-items: end;
+}
+.price-cart-container {
+    border-radius: 100px;
+    overflow: hidden;
+    height: 2em;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+.price, .add-to-cart {
+    border: 0;
+    padding: 0.5em 1em;
+    display: flex;
+    align-items: center;
+}
+.price {
+    background-color: #333333;
+    color: #f9f9f9;
+    padding: 0 1.5em !important;
+    font-weight: 800;
+}
+.add-to-cart {
+    background-color: #4BFEC9;
+    cursor: pointer;
 }
 .description{
     color: #999999;

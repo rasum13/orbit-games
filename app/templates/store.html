@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block extra_css %}
-    <link rel="stylesheet" href="{{ url_for('static', path='css/store.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/store.css') }}" />
+    <script src="{{url_for('static', path='js/store.js') }}"></script>
 {% endblock %}
 {% block content %}
     <div class="container">
@@ -9,15 +10,15 @@
                 <a href="{{ url_for('game_page', game_id=game.id)}}" class="gamecard">
                     <img src="{{ url_for('static', path='images/' ~ game.card_image) }}" class="game-img" >
                     <h2 class="game-title">{{ game.title }}</h2>
-                    <div class="price">{{ game.price }}</div>
+                    <div class="price">${{ game.price }}</div>
                 </a>
             {% endfor %}
         </div>
-        <form class="filter-box">
+        <form class="filter-box" action="{{ url_for('store_page') }}" method="GET">
             <h3>Genre</h3>
             {% for genre in genre_list %}
-                <label for={{ genre.id }} class="checkbox-container">
-                    <input id={{ genre.id }} class= "filter-checkbox" type="checkbox" name={{ genre.id }}>
+                <label for={{ 'genre-' ~ genre.id }} class="checkbox-container">
+                    <input id={{ 'genre-' ~ genre.id }} class= "filter-checkbox" type="checkbox" name="genres" value={{ 'genre-' ~ genre.id }}>
                     <span class="filter-checkmark"></span>
                     <div class="filter-text" for="Action">{{ genre.name }}</div> 
                 </label>

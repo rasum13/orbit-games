@@ -1,6 +1,23 @@
 from app.models.game import Game, GameCreate, Genre
 from sqlmodel import Session, select
 
+def get_games(*, session: Session) -> list[Game]:
+    statement = select(Game)
+    games = session.exec(statement)
+
+    return list(games)
+
+def get_game(*, session: Session, id: int) -> Game | None:
+    game = session.get(Game, id)
+
+    return game
+
+def get_genres(*, session: Session) -> list[Genre]:
+    statement = select(Genre)
+    genres = session.exec(statement)
+
+    return list(genres)
+
 def create_game(*, session: Session, game_in: GameCreate) -> Game:
     genres: list[Genre] = []
     for genre_name in game_in.genre_names:

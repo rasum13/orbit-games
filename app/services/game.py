@@ -1,11 +1,20 @@
-from app.models.game import Game, GameCreate, Genre
-from sqlmodel import Session, select
+from app.models.game import Game, GameCreate, Genre, GameGenreLink
+from sqlmodel import Session, select, col, func
 
 def get_games(*, session: Session) -> list[Game]:
     statement = select(Game)
     games = session.exec(statement)
 
     return list(games)
+
+def get_games_by_genre(*, session: Session, genre_id_list: list[int]) -> list[Game]:
+    statement_games = select(Game)
+    games = session.exec(statement_games).all()
+
+    target_genre_ids= set(genre_id_list)
+    games_filtered = [game for game in games if target_genre_ids.issubset({g.id for g in game.genres})]
+
+    return list(games_filtered)
 
 def get_game(*, session: Session, id: int) -> Game | None:
     game = session.get(Game, id)

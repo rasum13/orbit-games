@@ -1,4 +1,3 @@
-from ntpath import join
 from fastapi import APIRouter, Request
 from app.core.templates import templates
 

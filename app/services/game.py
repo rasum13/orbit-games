@@ -1,5 +1,5 @@
-from app.models.game import Game, GameCreate, Genre, GameGenreLink
-from sqlmodel import Session, select, col, func
+from app.models.game import Game, GameCreate, Genre
+from sqlmodel import Session, select
 
 def get_games(*, session: Session) -> list[Game]:
     statement = select(Game)

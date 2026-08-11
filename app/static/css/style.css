@@ -87,3 +87,6 @@ footer{
     color: white;
     padding: 14px 16px;
 }
+.container {
+    min-height: 80dvh;
+}

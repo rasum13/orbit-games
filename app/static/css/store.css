@@ -40,7 +40,8 @@
     background-color: #333333;
     border: 1px solid #666666;
     width: 300px;
-    position: relative;
+    position: sticky;
+    top: 40px;
 }
 .filter-box h3{
     color: #f9f9f9;  

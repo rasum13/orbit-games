@@ -3,7 +3,9 @@
     <link rel="stylesheet" href="{{ url_for('static', path='css/game.css') }}">
 {% endblock %}
 {% block content %}
-    <img src="{{ url_for('static', path='images/' ~ game.banner_image) }}" class="game-banner">
+    <div class="game-banner">
+        <img src="{{ url_for('static', path='images/' ~ game.banner_image) }}"/>
+    </div>
     <div class="container">
         <div>
             <h2 class="game-title">{{ game.title }}</h2>

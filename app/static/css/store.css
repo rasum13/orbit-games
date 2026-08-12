@@ -1,4 +1,4 @@
-.container{
+.container {
     display: grid;
     grid-template-columns: 5fr 1fr;
     flex-direction: row;
@@ -6,22 +6,24 @@
     padding: 2em;
     align-items: flex-start;
 }
-.games{
+
+.games {
     display: flex;
     flex-wrap: wrap;
 }
-.game-title{
+
+.game-title {
     margin: 0;
-    color: #f9f9f9;
     font-size: 1.25em;
     margin: 0.5em 0;
     font-weight: 500;
     flex: 1;
     min-width: 0;
 }
-.gamecard{
+
+.gamecard {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -30,49 +32,56 @@
     word-wrap: break-word;
     hyphens: auto;
 }
-.game-img{
+
+.game-img {
     border-radius: 12px;
     flex-shrink: 0;
 }
-.filter-box{
+
+.filter-box {
     padding: 2em;
     border-radius: 16px;
-    background-color: #333333;
-    border: 1px solid #666666;
+    background-color: var(--background-alt);
+    border: 1px solid var(--border);
     width: 300px;
     position: sticky;
     top: 40px;
 }
-.filter-box h3{
-    color: #f9f9f9;  
+
+.filter-box h3 {
     margin: 0px;
-    margin-bottom: 1em; 
+    margin-bottom: 1em;
 }
-.filter-text{
-    color: #999999;
+
+.filter-text {
+    color: var(--text-color-alt-2);
     margin-left: 0.75em;
 }
-.checkbox-container input{
+
+.checkbox-container input {
     position: absolute;
     opacity: 0;
     height: 0;
     width: 0;
     cursor: pointer;
 }
-.filter-checkmark{
+
+.filter-checkmark {
     height: 16px;
     width: 16px;
     content: "";
-    background-color: #555555;
-    border: 1px solid #777777;
+    background-color: var(--background-alt-2);
+    border: 1px solid var(--border);
     border-radius: 4px;
     position: relative;
     display: inline-block;
 }
-.checkbox-container:hover input ~ .filter-checkmark{
-    background-color: #777777;
+
+.checkbox-container:hover input~.filter-checkmark {
+    background-color: var(--background-hover);
 }
-.filter-checkmark::after{
+
+.filter-checkmark::after {
     content: "";
     display: none;
     position: absolute;
@@ -80,15 +89,18 @@
     left: 4px;
     border-radius: 10px;
 }
-.checkbox-container input:checked ~ .filter-checkmark::after{
+
+.checkbox-container input:checked~.filter-checkmark::after {
     display: block;
 }
-.checkbox-container .filter-checkmark::after{
+
+.checkbox-container .filter-checkmark::after {
     width: 8px;
     height: 8px;
-    background: #aaaaaa;
+    background: var(--text-color-alt-2);
 }
-.checkbox-container{
+
+.checkbox-container {
     margin-top: 0.5em;
     font-size: 0.75em;
     display: flex;
@@ -96,20 +108,23 @@
     cursor: pointer;
     position: relative;
 }
-.filter-apply{
-    color: #4BFEC9;
-    background-color: #333333;
+
+.filter-apply {
+    color: var(--accent);
+    background-color: transparent;
     text-decoration: none;
     position: absolute;
     top: 2.5em;
     right: 2em;
     border: 0;
 }
-.filter-apply:hover{
-    color: #999999;
+
+.filter-apply:hover {
+    color: var(--text-color-alt-2);
     cursor: pointer;
 }
-.price{
-    color: #999999;
+
+.price {
+    color: var(--text-color-alt-2);
     font-size: 1.25em;
 }

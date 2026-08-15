@@ -20,7 +20,7 @@
         </div>
         <div class="navbar-right">
             <form class="searchbar" action="{{ url_for('store_search') }}" method="GET">
-                <input class="search-textbox" type="text" name="query" />
+                <input class="search-textbox" type="text" name="query" {% if search_query is defined %}value="{{ search_query }}"{% endif %} />
                 <input class="search-button" type="submit" value="&#xf002;" />
             </form>
             <a href="#" class="cart">

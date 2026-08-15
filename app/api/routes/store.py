@@ -33,5 +33,6 @@ async def store_search(session: SessionDep, request: Request, query: str = Query
         name="search.html",
         context={
             "games": search_results,
+            "search_query": query,
         }
     )

@@ -1,5 +1,5 @@
 fastapi[standard]
 sqlmodel
 alembic
-psycopg2
+psycopg2-binary
 python-multipart

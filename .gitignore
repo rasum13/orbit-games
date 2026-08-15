@@ -7,3 +7,8 @@ htmlcov
 .cache
 .venv
 .env
+.env.*
+!.env.example
+db-data
+*/db-data/
+.DS_Store

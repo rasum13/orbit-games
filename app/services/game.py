@@ -1,3 +1,4 @@
+from sqlalchemy.dialects.postgresql.ext import to_tsvector, websearch_to_tsquery
 from app.models.game import Game, GameCreate, Genre
 from sqlmodel import Session, select
 
@@ -15,6 +16,11 @@ def get_games_by_genre(*, session: Session, genre_id_list: list[int]) -> list[Ga
     games_filtered = [game for game in games if target_genre_ids.issubset({g.id for g in game.genres})]
 
     return list(games_filtered)
+
+def search_games(*, session: Session, query: str) -> list[Game]:
+    statement = select(Game).where(to_tsvector("english", Game.title).bool_op("@@")(websearch_to_tsquery("english", query)))
+    search_results = session.exec(statement)
+    return list(search_results)
 
 def get_game(*, session: Session, id: int) -> Game | None:
     game = session.get(Game, id)

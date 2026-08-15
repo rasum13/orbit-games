@@ -2,7 +2,7 @@ from app.api.deps import SessionDep
 from typing import List
 from fastapi import APIRouter, Request, Query
 from app.core.templates import templates
-from app.services.game import get_games, get_genres, get_game, get_games_by_genre
+from app.services.game import get_games, get_genres, get_games_by_genre, search_games
 
 router = APIRouter()
 
@@ -25,14 +25,13 @@ async def store_page(session: SessionDep, request: Request, filter_genres: List[
         }
     )
 
-@router.get(path="/game/{game_id}")
-async def game_page(session: SessionDep, request: Request, game_id: int):
-    game = get_game(session=session, id=game_id)
-
+@router.get(path="/search")
+async def store_search(session: SessionDep, request: Request, query: str = Query()):
+    search_results =  search_games(session=session, query=query)
     return templates.TemplateResponse(
         request=request,
-        name="game.html",
+        name="search.html",
         context={
-            "game": game
+            "games": search_results,
         }
     )

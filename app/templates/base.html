@@ -19,10 +19,10 @@
             <a href="#footer">Contact Us</a>
         </div>
         <div class="navbar-right">
-            <div class="searchbar">
-                <input class="search-textbox" type="text" />
-                <input class="search-button" type="button" value="&#xf002;" />
-            </div>
+            <form class="searchbar" action="{{ url_for('store_search') }}" method="GET">
+                <input class="search-textbox" type="text" name="query" />
+                <input class="search-button" type="submit" value="&#xf002;" />
+            </form>
             <a href="#" class="cart">
                 <i class="fa-solid fa-cart-shopping"></i>
             </a>

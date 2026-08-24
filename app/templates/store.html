@@ -17,25 +17,26 @@
                 </a>
             {% endfor %}
         </div>
-        <form class="filter-box" action="{{ url_for('store_page') }}" method="GET">
-            <h3>Genre</h3>
-            {% for genre in genre_list %}
-                <label for={{ genre.id }} class="checkbox-container">
-                    <input
-                        id={{ genre.id }}
-                        class="filter-checkbox"
-                        type="checkbox"
-                        name="filter-genres"
-                        value={{ genre.id }}
-                        onchange="this.form.submit()"
-                        {% if genre.id in filter_genres %}checked{% endif %}
-                    />
-                    <span class="filter-checkmark"></span>
-                    <div class="filter-text" for="Action">{{ genre.name }}</div> 
-                </label>
-            {% endfor %}
-                <input class="filter-apply" type="submit" value="Apply">
+        <div class="filter-box">
+            <form class="filter-form" action="{{ url_for('store_page') }}" method="GET">
+                <h3>Genre</h3>
+                {% for genre in genre_list %}
+                    <label for={{ genre.id }} class="checkbox-container">
+                        <input
+                            id={{ genre.id }}
+                            class="filter-checkbox"
+                            type="checkbox"
+                            name="filter-genres"
+                            value={{ genre.id }}
+                            {% if genre.id in filter_genres %}checked{% endif %}
+                        />
+                        <span class="filter-checkmark"></span>
+                        <div class="filter-text" for="Action">{{ genre.name }}</div> 
+                    </label>
+                {% endfor %}
+                    <input class="filter-apply" type="submit" value="Apply">
 
-        </form>
+            </form>
+        </div>
     </div>
 {% endblock %}

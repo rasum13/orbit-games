@@ -1,21 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"> -->
-    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', path='vendor/fontawesome/css/all.min.css') }}">
-    {% block extra_css %}{% endblock %}
-</head>
-<body>
+{% extends "base.html" %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', path='css/cart.css') }}">
+{% endblock %}
+{% block content %}
     <div class="container">
         <h2>My Cart</h2>
+        {% if not games %}
+        <p>No games added to cart.</p>
+        {% endif %}
+        {% for game in games %}
+            <div class="cart-item">
+                <div class="cart-item-left">
+                    <img src="{{ url_for('static', path='images/' ~ game.banner_image) }}">
+                    <h3>{{ game.title }}</h3>
+                </div>
+                <div class="cart-item-right">
+                    Price: ${{ game.price }}
+                    <form action="{{ url_for('cart_remove_game') }}" method="POST">
+                        <input type="hidden" name="game_id" value="{{ game.id }}"/>
+                        <input class="remove-button" type="submit" value="‒"/>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="bottom-container">
+            <div class="total-cost">Total Cost: ${{ total_price }}</div>
+            <form class="buy-form" action="{{ url_for('cart_buy_all') }}" method="POST">
+                <input class="buy-button" type="submit" value="Buy Now"/>
+            </form>
+        </div>
     </div>
-    {% block content %}
-    {% endblock %}
-</body>
-</html>
+{% endblock %}

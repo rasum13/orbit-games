@@ -20,3 +20,11 @@ async def about_page(request: Request):
             "current_page": "about_page"
         }
     )
+
+@router.get("/404")
+async def not_found(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="404.html",
+        context={}
+    )

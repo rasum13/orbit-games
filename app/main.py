@@ -17,6 +17,8 @@ app = FastAPI()
 async def http_exception_handler(_: Request, exc: StarletteHTTPException):
     if exc.status_code == 401:
         return RedirectResponse(url="/user/login", status_code=303)
+    elif exc.status_code == 404:
+        return RedirectResponse(url="/404", status_code=303)
     raise exc
 
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")

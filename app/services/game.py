@@ -1,3 +1,5 @@
+from typing import List
+from fastapi import Request
 from sqlalchemy.dialects.postgresql.ext import to_tsvector, websearch_to_tsquery
 from app.models.game import Game, GameCreate, Genre
 from sqlmodel import Session, select
@@ -54,3 +56,34 @@ def create_game(*, session: Session, game_in: GameCreate) -> Game:
 
     return db_game
 
+def add_game_to_cart(*, session: Session, request: Request, game_id: int) -> bool:
+    cart: List[int] = request.session.get("cart", [])
+    game = get_game(session=session, id=game_id)
+    if game and game.id not in cart:
+        cart.append(game.id) # type: ignore
+        request.session["cart"] = cart
+        return True
+    return False
+
+def remove_game_from_cart(*, session: Session, request: Request, game_id: int) -> bool:
+    cart: List[int] = request.session.get("cart", [])
+
+    if game_id in cart:
+        cart.remove(game_id)
+        request.session["cart"] = cart
+        return True
+    return False
+
+def get_games_from_cart(*, session: Session, request: Request) -> List[Game]:
+    cart = request.session.get("cart", [])
+
+    if not cart:
+        return []
+
+    statement = select(Game).where(Game.id.in_(cart)) # type: ignore
+    games = session.exec(statement).all()
+
+    return list(games)
+
+def remove_all_games_from_cart(*, request: Request):
+    request.session["cart"] = []

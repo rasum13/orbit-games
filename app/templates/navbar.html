@@ -15,7 +15,7 @@
             <input class="search-textbox" type="text" name="query" {% if search_query is defined %}value="{{ search_query }}"{% endif %} />
             <input class="search-button" type="submit" value="&#xf002;" />
         </form>
-        <a href="#" class="cart">
+        <a href="{{ url_for('cart_page') }}" class="cart">
             <i class="fa-solid fa-cart-shopping"></i>
         </a>
     </div>

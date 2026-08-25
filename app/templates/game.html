@@ -17,9 +17,10 @@
             </ul>
             <p class="description">{{ game.description }}</p>
         </div>
-        <div class="price-cart-container">
+        <form class="price-cart-container" action="{{ url_for('cart_add_game') }}" method="POST">
             <div class="price">{{ game.price }}</div>
-            <button class="add-to-cart">Add to Cart</button>
-        </div>
+            <input type="hidden" name="game_id" value="{{ game.id }}"/>
+            <input type="submit" class="add-to-cart" value="Add to Cart"/>
+        </form>
     </div>
 {% endblock %}

@@ -1,0 +1,22 @@
+{% set pages = {
+    "store_page": "Store",
+    "about_page": "About"
+} %}
+<div class="topbar">
+    <div class="navbar">
+        <a href="{{ url_for('home_page') }}"><img class="logo-topbar" src="{{ url_for('static', path='images/logo.svg') }}"/></a>
+        {% for endpoint, label in pages.items() %}
+            <a href="{{ url_for(endpoint) }}" {% if endpoint == current_page %}style="background: var(--background-alt-2);"{% endif %}>{{ label }}</a>
+        {% endfor %}
+        <a href="#footer">Contact Us</a>
+    </div>
+    <div class="navbar-right">
+        <form class="searchbar" action="{{ url_for('store_search') }}" method="GET">
+            <input class="search-textbox" type="text" name="query" {% if search_query is defined %}value="{{ search_query }}"{% endif %} />
+            <input class="search-button" type="submit" value="&#xf002;" />
+        </form>
+        <a href="#" class="cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+    </div>
+</div>

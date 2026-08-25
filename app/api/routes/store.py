@@ -21,7 +21,8 @@ async def store_page(session: SessionDep, request: Request, filter_genres: List[
         context={
             "games": games,
             "genre_list": genre_list,
-            "filter_genres": filter_genres
+            "filter_genres": filter_genres,
+            "current_page": "store_page"
         }
     )
 
@@ -34,5 +35,6 @@ async def store_search(session: SessionDep, request: Request, query: str = Query
         context={
             "games": search_results,
             "search_query": query,
+            "current_page": "store_page"
         }
     )

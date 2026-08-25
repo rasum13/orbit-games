@@ -12,31 +12,9 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <div class="topbar">
-        <div class="navbar">
-            <a href="{{ url_for('home_page') }}"><img class="logo-topbar" src="{{ url_for('static', path='images/logo.svg') }}"/></a>
-            <a href="{{ url_for('store_page') }}">Store</a>
-            <a href="{{ url_for('about_page') }}">About Us</a>
-            <a href="#footer">Contact Us</a>
-        </div>
-        <div class="navbar-right">
-            <form class="searchbar" action="{{ url_for('store_search') }}" method="GET">
-                <input class="search-textbox" type="text" name="query" {% if search_query is defined %}value="{{ search_query }}"{% endif %} />
-                <input class="search-button" type="submit" value="&#xf002;" />
-            </form>
-            <a href="#" class="cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
-        </div>
-    </div>
+    {% include "navbar.html" %}
     {% block content %}
     {% endblock %}
-    <footer id="footer">
-        <p>Contact us<br/>
-        orbitgames@gmail.com
-        </p>
-
-        &copy Orbit Games
-    </footer>
+    {% include "footer.html" %}
 </body>
 </html>

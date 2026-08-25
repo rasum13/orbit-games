@@ -16,5 +16,7 @@ async def about_page(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="about.html",
-        context={}
+        context={
+            "current_page": "about_page"
+        }
     )

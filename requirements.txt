@@ -3,3 +3,6 @@ sqlmodel
 alembic
 psycopg2-binary
 python-multipart
+passlib[bcrypt]
+itsdangerous
+argon2-cffi

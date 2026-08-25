@@ -1,6 +1,6 @@
-from app.api.deps import SessionDep
+from app.api.deps import SessionDep, get_current_user
 from typing import List
-from fastapi import APIRouter, Request, Query
+from fastapi import APIRouter, Request, Query, Depends
 from app.core.templates import templates
 from app.services.game import get_games, get_genres, get_games_by_genre, search_games
 
@@ -8,7 +8,7 @@ router = APIRouter()
 
 
 @router.get("/")
-async def store_page(session: SessionDep, request: Request, filter_genres: List[int] = Query([], alias="filter-genres")):
+async def store_page(session: SessionDep, request: Request, filter_genres: List[int] = Query([], alias="filter-genres"), _ = Depends(get_current_user)):
     games = get_games(session=session)
     genre_list = get_genres(session=session)
 
@@ -27,7 +27,7 @@ async def store_page(session: SessionDep, request: Request, filter_genres: List[
     )
 
 @router.get(path="/search")
-async def store_search(session: SessionDep, request: Request, query: str = Query()):
+async def store_search(session: SessionDep, request: Request, query: str = Query(), _ = Depends(get_current_user)):
     search_results =  search_games(session=session, query=query)
     return templates.TemplateResponse(
         request=request,

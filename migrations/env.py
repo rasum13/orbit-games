@@ -7,6 +7,7 @@ from sqlmodel import SQLModel
 from alembic import context
 
 from app.models.game import Game, Genre, GameGenreLink
+from app.models.user import User
 
 from app.core.config import settings
 

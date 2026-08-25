@@ -14,15 +14,19 @@
 <body>
     <div class="container">
         <a class="back-button" href="{{ url_for('home_page') }}"><i class="fa-solid fa-arrow-left"></i></a>
-        <form>
+            <form action="{{ url_for('signup') }}" method="POST">
             <h2 class="title">Sign Up</h2>
             <input class="login-input" type="text" id="username" name="username" placeholder="Username">
 
             <input class="login-input" type="password" id="password" name="password" placeholder="Password">
 
-            <input class="login-input" type="password" id="password" name="password" placeholder="Repeat Password">
+            <input class="login-input" type="password" id="password_repeated" name="password_repeated" placeholder="Repeat Password">
 
             <input class="submit" type="submit" value="Sign Up">
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
 
             <a class="account" href="{{ url_for('login_page') }}">Alredy have an account?</a>
         </form>

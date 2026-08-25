@@ -76,3 +76,6 @@ form input{
 ::placeholder{
     color: var(--text-color-alt-2);
 }
+.error {
+    color: var(--error) !important;
+}

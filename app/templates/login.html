@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="{{ url_for('home_page') }}"><img class="logo" src="{{ url_for('static', path='images/logo.svg') }}"/></a>
+        <a class="back-button" href="{{ url_for('home_page') }}"><i class="fa-solid fa-arrow-left"></i></a>
         <form>
             <h2 class="title">Sign In</h2>
             <input class="login-input" type="text" id="username" name="username" placeholder="Username">

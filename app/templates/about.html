@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', path='css/about.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 class="title">Welcome to Orbit Games</h1>
+
+        <p>Orbit Games is a digital gaming store made for gamers who want a simple, fast, and reliable way to discover and buy their favorite games.</p>
+
+        <p>We offer a wide collection of PC games, giving gamers access to popular titles across different genres. From action and adventure to sports, racing, RPG, and more, our goal is to make finding your next game easy.</p>
+
+        <h2>What We Offer</h2>
+        <ul>
+        <li>PC Games: Explore games for your favorite platform.</li><br>
+        <li>Easy Shopping: Browse games, check details, and purchase with ease.</li><br>
+        <li>Digital Delivery: Get your purchased games digitally without waiting for physical delivery.</li><br>
+        <li>Secure Purchases: We aim to provide a safe and reliable shopping experience.</li><br>
+        <li>Great Deals: Find games at competitive prices and discover exciting offers.</li>
+        </ul>
+       
+       <h2>Our Mission</h2>
+
+        <p>Our mission is to create a simple and enjoyable online gaming store where gamers can easily find the games they love and purchase them without unnecessary complications.</p>
+
+        <p>Whether you're looking for your next adventure or searching for a game to add to your collection, Orbit Games is here to make gaming shopping easier.</p>
+
+        Game More. Search Less.
+    </div>
+{% endblock %}

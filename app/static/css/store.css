@@ -36,6 +36,7 @@
 .game-img {
     border-radius: 12px;
     flex-shrink: 0;
+    box-shadow: var(--shadow-img);
 }
 
 .filter-box {

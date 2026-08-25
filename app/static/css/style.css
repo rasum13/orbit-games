@@ -32,6 +32,10 @@
     font-weight: 800;
 }
 
+.logo-topbar {
+    width: 120px;
+}
+
 body {
     margin: 0;
     background-color: var(--background);

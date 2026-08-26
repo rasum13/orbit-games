@@ -36,6 +36,7 @@
     color: var(--background) !important;
     font-weight: bold;
     margin-left: 16px;
+    transition: background-color 0.2s ease;
 }
 
 .signin-button:hover {
@@ -73,6 +74,7 @@
     padding: 1em 1.5em;
     border-radius: 100px;
     font-weight: bold;
+    transition: background-color 0.2s ease;
 }
 
 .cta-button:hover {

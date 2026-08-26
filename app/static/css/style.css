@@ -1,5 +1,6 @@
 * {
     --shadow-img: 2px 2px 16px #ffffff22;
+    --shadow-img-hover: 4px 4px 20px #ffffff11;
     --shadow: 1px 1px 12px #00000077;
     --background-darker: #0d0d0d;
     --background: #1a1a1a;
@@ -103,6 +104,7 @@ body {
     color: var(--text-color);
     text-decoration: none;
     border-radius: 8px;
+    transition: background-color 0.2s ease;
 }
 
 .navbar a:hover {

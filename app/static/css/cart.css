@@ -10,6 +10,11 @@
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 1em;
+    transition: box-shadow 0.3s ease;
+}
+
+.cart-item:hover {
+    box-shadow: var(--shadow-img-hover);
 }
 
 .cart-item img {

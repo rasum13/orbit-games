@@ -32,7 +32,7 @@ docker compose up -d --build
 ```
 ### Apply Database Migrations
 ```sh
-docker comose exec server alembic upgrade head
+docker compose exec server alembic upgrade head
 ```
 ### Seed Initial Data
 Populate the database withe example data:

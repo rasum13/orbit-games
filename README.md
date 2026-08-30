@@ -32,10 +32,11 @@ docker compose up -d --build
 ```
 ### Apply Database Migrations
 ```sh
-docker exec server alebmic upgrade head
+docker comose exec server alembic upgrade head
 ```
 ### Seed Initial Data
 Populate the database withe example data:
 ```
-docker exec server python -m scripts.seed
+docker compose exec server python -m scripts.seed
 ```
+After that, visit http://localhost:8000.

@@ -121,6 +121,16 @@ body {
     font-size: 1.5em;
 }
 
+.signout{
+    margin-left: 1.5em;
+    color: var(--text-color);
+    font-size: 1.25em;
+}
+
+.signout:hover{
+    color: var(--accent);
+}
+
 footer {
     margin: 0;
     bottom: 0;
